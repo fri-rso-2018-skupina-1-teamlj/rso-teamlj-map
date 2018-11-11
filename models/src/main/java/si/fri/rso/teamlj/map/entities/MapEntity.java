@@ -33,10 +33,10 @@ public class MapEntity {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "bike_id")
-    @Getter
-    @Setter
-    private Integer bikeId;
+//    @Column(name = "bike_id")
+//    @Getter
+//    @Setter
+//    private Integer bikeId;
 
     @Getter
     @Setter
