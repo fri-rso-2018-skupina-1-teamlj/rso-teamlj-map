@@ -2,15 +2,16 @@ package si.fri.rso.teamlj.map.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import si.fri.rso.teamlj.map.dtos.Map;
 
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 
-@Entity(name = "map")
+@Entity(name = "mapTable")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "MapEntity.getAll", query = "SELECT r FROM map r")
+                @NamedQuery(name = "MapEntity.getAll", query = "SELECT m FROM mapTable m")
         })
 public class MapEntity {
 
@@ -22,16 +23,32 @@ public class MapEntity {
 
     @Getter
     @Setter
-    private Instant numberOfBikes;
+    @Column(name = "longitude")
+    private float longitude;
+
+    @Getter
+    @Setter
+    @Column(name = "longitude")
+    private float latitude;
+
+    @Getter
+    @Setter
+    @Column(name = "location")
+    private String location;
 
     @Column(name = "bike_id")
     @Getter
     @Setter
     private Integer bikeId;
 
-    @Transient
     @Getter
     @Setter
-    private List<si.fri.rso.teamlj.map.dtos.Map> maps;
+    @Column(name = "freeBikes")
+    private int freeBikes;
+
+//    @Transient
+//    @Getter
+//    @Setter
+//    private List<Map> maps;
 
 }

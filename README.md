@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name pg-map -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=map -p 5433:5432 postgres:latest
+docker run -d --name pg-users -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=mapTable -p 5432:5432 postgres:latest
 ```
 Local run (warning: debugger needs to be attached):
 ```

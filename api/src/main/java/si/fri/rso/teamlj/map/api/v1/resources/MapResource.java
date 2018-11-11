@@ -1,5 +1,6 @@
 package si.fri.rso.teamlj.map.api.v1.resources;
 
+import si.fri.rso.teamlj.map.entities.MapEntity;
 import si.fri.rso.teamlj.map.services.beans.MapBean;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -24,9 +25,9 @@ public class MapResource {
     private MapBean mapBean;
 
     @GET
-    public Response getMap() {
+    public Response getMaps() {
 
-        List<si.fri.rso.teamlj.map.entities.MapEntity> map = mapBean.getMap(uriInfo);
+        List<MapEntity> map = mapBean.getMaps();
 
         return Response.ok(map).build();
     }
@@ -35,7 +36,7 @@ public class MapResource {
     @Path("/{mapId}")
     public Response getMap(@PathParam("mapId") Integer mapId) {
 
-        si.fri.rso.teamlj.map.entities.MapEntity map = mapBean.getMap(mapId);
+        MapEntity map = mapBean.getMap(mapId);
 
         if (map == null) {
             return Response.status(Response.Status.NOT_FOUND).build();

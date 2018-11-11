@@ -3,12 +3,14 @@ package si.fri.rso.teamlj.map.services.beans;
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
+import si.fri.rso.teamlj.map.entities.MapEntity;
 import si.fri.rso.teamlj.map.services.configuration.AppProperties;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -42,19 +44,18 @@ public class MapBean {
         //baseUrl = "http://localhost:8082"; // map
     }
 
-    public List<si.fri.rso.teamlj.map.entities.MapEntity> getMap(UriInfo uriInfo) {
+    public List<MapEntity> getMaps() {
 
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery())
-                .defaultOffset(0)
-                .build();
+        TypedQuery<MapEntity> query = em.createNamedQuery("MapEntity.getAll", MapEntity.class);
 
-        return JPAUtils.queryEntities(em, si.fri.rso.teamlj.map.entities.MapEntity.class, queryParameters);
+        return query.getResultList();
 
     }
 
-    public si.fri.rso.teamlj.map.entities.MapEntity getMap(Integer mapId) {
 
-        si.fri.rso.teamlj.map.entities.MapEntity map = em.find(si.fri.rso.teamlj.map.entities.MapEntity.class, mapId);
+    public MapEntity getMap(Integer mapId) {
+
+        MapEntity map = em.find(MapEntity.class, mapId);
 
         if (map == null) {
             throw new NotFoundException();
@@ -63,12 +64,12 @@ public class MapBean {
         return map;
     }
 
-    public List<si.fri.rso.teamlj.map.entities.MapEntity> getMapFilter(UriInfo uriInfo) {
+    public List<MapEntity> getMapFilter(UriInfo uriInfo) {
 
         QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
                 .build();
 
-        return JPAUtils.queryEntities(em, si.fri.rso.teamlj.map.entities.MapEntity.class, queryParameters);
+        return JPAUtils.queryEntities(em, MapEntity.class, queryParameters);
     }
 
 

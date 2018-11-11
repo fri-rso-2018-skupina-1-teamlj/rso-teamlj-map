@@ -5,15 +5,15 @@ services:
     ports:
     - 5433:5432
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: dbuser
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: map
+      POSTGRES_DB: mapTable
   rso-customers:
     image: ls8856/rso-teamlj-map:1.0
     ports:
     - 8081:8081
     environment:
-      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/map
+      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/mapTable
       KUMULUZEE_CONFIG_ETCD_HOSTS: http://etcd:2379
       KUMULUZEE_DISCOVERY_ETCD_HOSTS: http://etcd:2379
     depends_on:
