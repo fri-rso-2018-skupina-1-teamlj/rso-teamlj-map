@@ -1,0 +1,24 @@
+kumuluzee:
+  name: rso-map
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8081
+    http:
+      port: 8081
+  datasources:
+    - jndi-name: jdbc/mapDS
+      connection-url: jdbc:postgresql://localhost:5433/map
+      username: postgres
+      password: postgres
+      max-pool-size: 20
+  config:
+    etcd:
+      hosts: http://localhost:2379
+    discovery:
+      etcd:
+        hosts: http://localhost:2379
+  app-properties:
+    external-services:
+      enabled: false
