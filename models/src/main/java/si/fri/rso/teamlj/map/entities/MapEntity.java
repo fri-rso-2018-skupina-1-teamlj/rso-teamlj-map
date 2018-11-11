@@ -2,11 +2,8 @@ package si.fri.rso.teamlj.map.entities;
 
 import lombok.Getter;
 import lombok.Setter;
-import si.fri.rso.teamlj.map.dtos.Map;
 
 import javax.persistence.*;
-import java.time.Instant;
-import java.util.List;
 
 @Entity(name = "mapTable")
 @NamedQueries(value =
