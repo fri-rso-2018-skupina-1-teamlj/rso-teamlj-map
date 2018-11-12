@@ -18,19 +18,19 @@ public class MapEntity {
     @Setter
     private Integer id;
 
+    @Column(name = "longitude")
     @Getter
     @Setter
-    @Column(name = "longitude")
     private float longitude;
 
+    @Column(name = "latitude")
     @Getter
     @Setter
-    @Column(name = "longitude")
     private float latitude;
 
+    @Column(name = "location")
     @Getter
     @Setter
-    @Column(name = "location")
     private String location;
 
 //    @Column(name = "bike_id")
@@ -38,9 +38,9 @@ public class MapEntity {
 //    @Setter
 //    private Integer bikeId;
 
+    @Column(name = "freeBikes")
     @Getter
     @Setter
-    @Column(name = "freeBikes")
     private int freeBikes;
 
 //    @Transient
