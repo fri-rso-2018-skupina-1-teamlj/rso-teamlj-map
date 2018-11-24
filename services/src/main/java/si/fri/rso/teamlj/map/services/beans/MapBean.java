@@ -1,8 +1,6 @@
 package si.fri.rso.teamlj.map.services.beans;
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
-import com.kumuluz.ee.rest.beans.QueryParameters;
-import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.rso.teamlj.map.entities.MapEntity;
 import si.fri.rso.teamlj.map.services.configuration.AppProperties;
 
@@ -16,7 +14,6 @@ import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -77,6 +74,7 @@ public class MapBean {
         MapEntity map = em.find(MapEntity.class, mapId);
 
         if (map == null) {
+            log.warning("map does not exist/map was deleted");
             throw new NotFoundException();
         }
 
@@ -106,14 +104,14 @@ public class MapBean {
 
         try {
             beginTx();
-            map.setId(map.getId());
-            map = em.merge(map);
+            mapEntity.setId(map.getId());
+            mapEntity = em.merge(mapEntity);
             commitTx();
         } catch (Exception e) {
             rollbackTx();
         }
 
-        return map;
+        return mapEntity;
     }
 
     public boolean deleteMap(Integer mapId) {

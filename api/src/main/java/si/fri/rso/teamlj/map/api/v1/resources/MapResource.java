@@ -3,7 +3,7 @@ package si.fri.rso.teamlj.map.api.v1.resources;
 import si.fri.rso.teamlj.map.entities.MapEntity;
 import si.fri.rso.teamlj.map.services.beans.MapBean;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
-@ApplicationScoped
+@RequestScoped
 @Path("/map")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -42,7 +42,7 @@ public class MapResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        return Response.status(Response.Status.OK).entity(mapId).build();
+        return Response.status(Response.Status.OK).entity(map).build();
     }
 
     @POST
