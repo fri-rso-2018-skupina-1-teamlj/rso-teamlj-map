@@ -38,20 +38,9 @@ public class MapEntity {
     @Setter
     private String locationName;
 
-
-//    @Column(name = "bike_id")
-//    @Getter
-//    @Setter
-//    private Integer bikeId;
-
-    @Column(name = "freeBikes")
+    @Column(name = "numberOfAvailableBikes")
     @Getter
     @Setter
-    private int freeBikes;
-
-//    @Transient
-//    @Getter
-//    @Setter
-//    private List<Map> maps;
+    private int numberOfAvailableBikes;
 
 }

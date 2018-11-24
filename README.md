@@ -12,13 +12,13 @@ java -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y -jar api
 
 App info:
 ```
-API at 8081/v1/map
-GUI at 8081
+API at 8084/v1/map
+GUI at 8084
 ```
 
 App start:
 ```
 docker build -t rso-teamlj-map:1.0 .
-docker run -p 8081:8081 rso-teamlj-map:1.0
-to change network host: docker run -p 8081:8081 --net=host rso-teamlj-map:1.0
+docker run -p 8084:8084 rso-teamlj-map:1.0
+to change network host: docker run -p 8084:8084 --net=host rso-teamlj-map:1.0
 ```

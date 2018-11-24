@@ -45,7 +45,7 @@ public class MapBean {
     @PostConstruct
     private void init() {
         httpClient = ClientBuilder.newClient();
-        //baseUrl = "http://localhost:8082"; // map
+        //baseUrl = "http://localhost:8084"; // map
     }
 
     public List<MapEntity> getMaps() {
@@ -83,15 +83,56 @@ public class MapBean {
         return map;
     }
 
-    public List<MapEntity> getMapFilter(UriInfo uriInfo) {
+    public MapEntity createMap(MapEntity mapEntity) {
 
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
-                .build();
+        try {
+            beginTx();
+            em.persist(mapEntity);
+            commitTx();
+        } catch (Exception e) {
+            rollbackTx();
+        }
 
-        return JPAUtils.queryEntities(em, MapEntity.class, queryParameters);
+        return mapEntity;
     }
 
+    public MapEntity putMap(Integer mapId, MapEntity mapEntity) {
 
+        MapEntity map = em.find(MapEntity.class, mapId);
+
+        if (map == null) {
+            return null;
+        }
+
+        try {
+            beginTx();
+            map.setId(map.getId());
+            map = em.merge(map);
+            commitTx();
+        } catch (Exception e) {
+            rollbackTx();
+        }
+
+        return map;
+    }
+
+    public boolean deleteMap(Integer mapId) {
+
+        MapEntity mapEntity = em.find(MapEntity.class, mapId);
+
+        if (mapEntity != null) {
+            try {
+                beginTx();
+                em.remove(mapEntity);
+                commitTx();
+            } catch (Exception e) {
+                rollbackTx();
+            }
+        } else
+            return false;
+
+        return true;
+    }
 
     private void beginTx() {
         if (!em.getTransaction().isActive())

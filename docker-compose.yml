@@ -11,7 +11,7 @@ services:
   rso-customers:
     image: ls8856/rso-teamlj-map:1.0
     ports:
-    - 8081:8081
+    - 8084:8084
     environment:
       KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/mapTable
       KUMULUZEE_CONFIG_ETCD_HOSTS: http://etcd:2379

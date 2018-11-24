@@ -45,4 +45,44 @@ public class MapResource {
         return Response.status(Response.Status.OK).entity(mapId).build();
     }
 
+    @POST
+    public Response createMap(MapEntity mapEntity) {
+
+        mapEntity = mapBean.createMap(mapEntity);
+
+        if (mapEntity.getId() != null) {
+            return Response.status(Response.Status.CREATED).entity(mapEntity).build();
+        } else {
+            return Response.status(Response.Status.CONFLICT).entity(mapEntity).build();
+        }
+    }
+
+    @PUT
+    @Path("/{mapId}")
+    public Response putMap(@PathParam("mapId") Integer mapId, MapEntity mapEntity) {
+
+        mapEntity = mapBean.putMap(mapId, mapEntity);
+
+        if (mapEntity == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        } else {
+            if (mapEntity.getId() != null)
+                return Response.status(Response.Status.OK).entity(mapEntity).build();
+            else
+                return Response.status(Response.Status.NOT_MODIFIED).build();
+        }
+    }
+
+    @DELETE
+    @Path("/{mapId}")
+    public Response deleteMap(@PathParam("mapId") Integer mapId) {
+
+        boolean deleted = mapBean.deleteMap(mapId);
+
+        if (deleted) {
+            return Response.status(Response.Status.GONE).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
 }
