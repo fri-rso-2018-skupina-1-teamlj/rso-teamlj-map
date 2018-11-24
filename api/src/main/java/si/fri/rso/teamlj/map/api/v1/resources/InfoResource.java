@@ -1,15 +1,12 @@
 package si.fri.rso.teamlj.map.api.v1.resources;
 
 import com.kumuluz.ee.common.runtime.EeRuntime;
-
-import si.fri.rso.teamlj.map.services.configuration.AppProperties;
 import si.fri.rso.teamlj.map.api.v1.dtos.HealthDto;
 import si.fri.rso.teamlj.map.api.v1.dtos.LoadDto;
+import si.fri.rso.teamlj.map.services.configuration.AppProperties;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
