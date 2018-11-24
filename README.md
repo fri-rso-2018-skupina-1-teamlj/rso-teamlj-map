@@ -10,6 +10,13 @@ Local run (warning: debugger needs to be attached):
 java -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y -jar api/target/map-api-1.0.0-SNAPSHOT.jar
 ```
 
+App info:
+```
+API at 8081/v1/map
+GUI at 8081
+```
+
+App start:
 ```
 docker build -t rso-teamlj-map:1.0 .
 docker run -p 8081:8081 rso-teamlj-map:1.0

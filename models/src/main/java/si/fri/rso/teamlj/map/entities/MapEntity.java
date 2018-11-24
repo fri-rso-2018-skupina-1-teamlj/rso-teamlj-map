@@ -18,20 +18,26 @@ public class MapEntity {
     @Setter
     private Integer id;
 
-    @Column(name = "longitude")
-    @Getter
-    @Setter
-    private float longitude;
-
     @Column(name = "latitude")
     @Getter
     @Setter
     private float latitude;
 
-    @Column(name = "location")
+    @Column(name = "longitude")
     @Getter
     @Setter
-    private String location;
+    private float longitude;
+
+    @Column(name = "locationString")
+    @Getter
+    @Setter
+    private String locationString;
+
+    @Column(name = "locationName")
+    @Getter
+    @Setter
+    private String locationName;
+
 
 //    @Column(name = "bike_id")
 //    @Getter

@@ -6,9 +6,11 @@ import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.rso.teamlj.map.entities.MapEntity;
 import si.fri.rso.teamlj.map.services.configuration.AppProperties;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
@@ -19,7 +21,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+@ManagedBean
 @ApplicationScoped
+@Named
 public class MapBean {
 
     private Logger log = Logger.getLogger(MapBean.class.getName());
@@ -50,6 +54,21 @@ public class MapBean {
 
         return query.getResultList();
 
+    }
+
+    public String getMapsAsString() {
+
+        TypedQuery<MapEntity> query = em.createNamedQuery("MapEntity.getAll", MapEntity.class);
+
+        List<MapEntity> result = query.getResultList();
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (MapEntity mapEntity : result) {
+            stringBuilder.append(mapEntity.getLocationString());
+        }
+
+        return stringBuilder.toString();
     }
 
 

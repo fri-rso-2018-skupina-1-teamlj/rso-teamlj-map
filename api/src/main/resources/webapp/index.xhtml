@@ -9,39 +9,46 @@
 </h:head>
 <h:body>
 
-    <!--https://developers.google.com/maps/documentation/javascript/adding-a-google-map-->
-    <style type="text/css">
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px;  /* The height is 400 pixels */
-            width: 100%;  /* The width is the width of the web page */
-        }
-    </style>
+    <h:form id="map-gui-form">
 
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script type="text/javascript">
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            var uluru = {lat: -25.344, lng: 131.036};
-            var fri = {lat: 46.050242, lng: 14.4691958};
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 4, center: uluru});
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({position: uluru, map: map});
-            var marker2 = new google.maps.Marker({position: fri, map: map});
-        }
-    </script>
-    <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYc1fQsaniw2wRRLJFEnnmEZ6wwxO2UI0&amp;callback=initMap">
-    </script>
+        <!--https://developers.google.com/maps/documentation/javascript/adding-a-google-map-->
+        <style type="text/css">
+            #map {
+                height: 500px;
+                max-width: 900px;
+            }
+        </style>
+
+
+        <h3>Map of available bike rent points</h3>
+
+        <div id="map" />
+
+        <h:inputHidden value="#{mapBean.getMapsAsString()}" id="map-string-id" class="map-string" />
+
+        <script type="text/javascript">
+            function initMap() {
+
+                var mapString = $("[id*='map-string-id']").val();
+                var parseMapString = mapString.split('+');
+                var i;
+                var map;
+                for (i = 0; i &lt; parseMapString.length; i = i + 2) {
+                    var location = {lat: parseFloat(parseMapString[i]), lng: parseFloat(parseMapString[i + 1])};
+                    if (i === 0) {
+                        map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 13, center: location});
+                    }
+                    var marker = new google.maps.Marker({position: location, map: map});
+                }
+
+            }
+        </script>
+
+
+    </h:form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous" />
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYc1fQsaniw2wRRLJFEnnmEZ6wwxO2UI0&amp;callback=initMap" />
 </h:body>
 </html>
