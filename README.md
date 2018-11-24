@@ -11,7 +11,7 @@ java -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y -jar api
 ```
 
 ```
-docker build -t map:1.0 .
-docker run -p 8081:8081 map:1.0
-to change network host: docker run -p 8081:8081 --net=host map:1.0
+docker build -t rso-teamlj-map:1.0 .
+docker run -p 8081:8081 rso-teamlj-map:1.0
+to change network host: docker run -p 8081:8081 --net=host rso-teamlj-map:1.0
 ```

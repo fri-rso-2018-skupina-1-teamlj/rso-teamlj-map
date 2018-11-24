@@ -25,6 +25,11 @@
         <kumuluzee-rest.version>1.2.3</kumuluzee-rest.version>
         <kumuluzee-config.version>1.1.0</kumuluzee-config.version>
         <kumuluzee-discovery.version>1.1.0</kumuluzee-discovery.version>
+        <kumuluzee-servlet-jetty.version>3.0.0</kumuluzee-servlet-jetty.version>
+        <kumuluzee-jsp-jetty.version>3.0.0</kumuluzee-jsp-jetty.version>
+        <kumuluzee-jsf-mojarra.version>3.0.0</kumuluzee-jsf-mojarra.version>
+        <kumuluzee-el-uel.version>3.0.0</kumuluzee-el-uel.version>
+        <gmaps4jsf-core.version>1.1.1</gmaps4jsf-core.version>
 
         <postgresql.version>42.2.5</postgresql.version>
         <lombok.version>1.18.4.0</lombok.version>
@@ -59,17 +64,41 @@
             </dependency>
 
             <dependency>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-servlet-jetty</artifactId>
+                <version>${kumuluzee-servlet-jetty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-jsp-jetty</artifactId>
+                <version>${kumuluzee-jsp-jetty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-jsf-mojarra</artifactId>
+                <version>${kumuluzee-jsf-mojarra.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-el-uel</artifactId>
+                <version>${kumuluzee-el-uel.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
             </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>si.fri.rso.teamlj</groupId>

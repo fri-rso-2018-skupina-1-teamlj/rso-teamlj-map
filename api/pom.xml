@@ -23,6 +23,21 @@
         </dependency>
 
         <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-jsp-jetty</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-jsf-mojarra</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-el-uel</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>si.fri.rso.teamlj</groupId>
             <artifactId>map-services</artifactId>
         </dependency>
