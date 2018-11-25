@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:latest
     ports:
-    - 5434:5432
+    - 5436:5432
     environment:
       POSTGRES_USER: dbuser
       POSTGRES_PASSWORD: postgres
@@ -13,7 +13,7 @@ services:
     ports:
     - 8084:8084
     environment:
-      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/mapTable
+      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5436/mapTable
       KUMULUZEE_DISCOVERY_ETCD_HOSTS: http://etcd:2379
     depends_on:
     - postgres

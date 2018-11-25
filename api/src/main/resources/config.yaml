@@ -8,8 +8,11 @@ kumuluzee:
     http:
       port: 8084
   datasources:
-    - jndi-name: jdbc/mapDS
-      connection-url: jdbc:postgresql://192.168.1.5:5432/mapTable # TODO - insert correct ip!!
+    - jndi-name: jdbc/MapDS
+      #connection-url: jdbc:postgresql://localhost/mapTable # TODO - insert correct ip!!
+      #username: dbuser
+      #password: postgres
+      connection-url: jdbc:postgresql://192.168.1.5:5436/mapTable # TODO - insert correct ip!!
       username: dbuser
       password: postgres
       max-pool-size: 20
@@ -26,7 +29,7 @@ kumuluzee:
   health:
     checks:
       data-source-health-check:
-        jndi-name: jdbc/mapDS
+        jndi-name: jdbc/MapDS
   app-properties:
     external-services:
       enabled: false
