@@ -16,9 +16,17 @@ kumuluzee:
   config:
     etcd:
       hosts: http://localhost:2379
-    discovery:
-      etcd:
-        hosts: http://localhost:2379
+  discovery:
+    etcd:
+      hosts: http://localhost:2379
+  metrics:
+    web-instrumentation:
+    - name: map-endpoint
+      url-pattern: /v1/map/*
+  health:
+    checks:
+      data-source-health-check:
+        jndi-name: jdbc/mapDS
   app-properties:
     external-services:
       enabled: false
