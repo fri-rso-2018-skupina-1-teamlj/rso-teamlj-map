@@ -12,13 +12,10 @@ kumuluzee:
       #connection-url: jdbc:postgresql://localhost/mapTable # TODO - insert correct ip!!
       #username: dbuser
       #password: postgres
-      connection-url: jdbc:postgresql://192.168.1.5:5436/mapTable # TODO - insert correct ip!!
-      username: dbuser
-      password: postgres
+      connection-url: jdbc:postgresql://35.228.47.159:5432/mapTable
+      username: rso
+      password: rso
       max-pool-size: 20
-  config:
-    etcd:
-      hosts: http://localhost:2379
   discovery:
     etcd:
       hosts: http://localhost:2379
