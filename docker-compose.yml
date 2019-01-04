@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: mapTable
   rso-map:
-    image: ls8856/rso-teamlj-map:2.3
+    image: ls8856/rso-teamlj-map:2.4
     ports:
     - 8084:8084
     environment:

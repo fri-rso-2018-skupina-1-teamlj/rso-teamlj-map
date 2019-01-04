@@ -55,7 +55,7 @@ public class MapBean {
     @Timed(name = "get_maps_timed")
     @Counted(name = "get_maps_counter")
     @CircuitBreaker(requestVolumeThreshold = 3)
-    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+    @Timeout(value = 5, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "getMapsFallback")
     public List<MapEntity> getMaps() {
 
@@ -75,7 +75,7 @@ public class MapBean {
     @Timed(name = "get_mapsAsString_timed")
     @Counted(name = "get_mapsAsString_counter")
     @CircuitBreaker(requestVolumeThreshold = 3)
-    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+    @Timeout(value = 5, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "getMapsAsStringFallback")
     public String getMapsAsString() {
 
@@ -102,7 +102,7 @@ public class MapBean {
     @Timed(name = "get_map_timed")
     @Counted(name = "get_map_counter")
     @CircuitBreaker(requestVolumeThreshold = 3)
-    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+    @Timeout(value = 5, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "getMapFallback")
     public MapEntity getMap(Integer mapId) {
 
