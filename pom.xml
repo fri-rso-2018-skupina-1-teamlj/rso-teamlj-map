@@ -35,6 +35,7 @@
         <kumuluzee-fault-tolerance.version>1.0.1</kumuluzee-fault-tolerance.version>
 
         <postgresql.version>42.2.5</postgresql.version>
+        <postgres-socket-factory.version>1.0.11</postgres-socket-factory.version>
         <lombok.version>1.18.4.0</lombok.version>
     </properties>
 
