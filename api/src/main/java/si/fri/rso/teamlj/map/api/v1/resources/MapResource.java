@@ -1,8 +1,10 @@
 package si.fri.rso.teamlj.map.api.v1.resources;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import si.fri.rso.teamlj.map.entities.MapEntity;
 import si.fri.rso.teamlj.map.services.beans.MapBean;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -12,8 +14,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
-@RequestScoped
+@ApplicationScoped
 @Path("/map")
+@Log
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class MapResource {
