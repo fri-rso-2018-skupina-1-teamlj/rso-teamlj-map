@@ -9,7 +9,7 @@ kumuluzee:
       port: 8084
   datasources:
     - jndi-name: jdbc/MapDS
-      #connection-url: jdbc:postgresql://localhost/mapTable # TODO - insert correct ip!!
+      #connection-url: jdbc:postgresql://localhost/mapTable
       #username: dbuser
       #password: postgres
       connection-url: jdbc:postgresql://35.228.47.159:5432/mapTable
